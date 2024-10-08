@@ -1,0 +1,12 @@
+package test;
+
+public class teset {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "안녕하세요!";
+		 char character = str.charAt(3); // 인덱스 3의 문자
+		System.out.println(character); // 출력: 하
+	}
+
+}

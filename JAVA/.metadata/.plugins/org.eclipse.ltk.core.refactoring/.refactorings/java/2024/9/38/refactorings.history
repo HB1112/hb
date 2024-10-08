@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ch8.exam_542&apos; to &apos;exam_55&apos;&#x0D;&#x0A;- Original project: &apos;java&apos;&#x0D;&#x0A;- Original element: &apos;ch8.exam_542&apos;&#x0D;&#x0A;- Renamed element: &apos;ch8.exam_55&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;exam_542&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ch8{exam_542.java[exam_542" matchStrategy="1" name="exam_55" qualified="false" references="true" similarDeclarations="false" stamp="1726797781573" textual="false" version="1.0"/>
+</session>

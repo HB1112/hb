@@ -1,0 +1,23 @@
+package ch13;
+
+import java.io.*;
+
+public class exam_100 {
+	public static void main(String[] args) {
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		
+		try {
+			fis = new FileInputStream("C:\\prac.txt");
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+//		fos = new FileOutputStream();
+//		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		
+		
+	}
+}

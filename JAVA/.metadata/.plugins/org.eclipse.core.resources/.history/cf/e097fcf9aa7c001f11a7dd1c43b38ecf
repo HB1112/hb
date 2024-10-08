@@ -1,0 +1,12 @@
+package test;
+
+public class teset {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 String str = "안녕하세요, 세계!";
+		 int index = str.indexOf("세"); // "세"의 인덱스 찾기
+		System.out.println(index); // 출력: 8
+	}
+
+}
