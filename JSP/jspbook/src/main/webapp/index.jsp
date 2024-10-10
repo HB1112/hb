@@ -25,5 +25,30 @@
 	<p><a href="3_9">예제 3-9</a></p>
 	<p><a href="3_10">예제 3-10</a></p>
 	<p><a href="3_11">예제 3-11</a></p>
+	<hr>
+	<p><a href="4_1">예제 4-1</a></p>
+	<p><a href="4_2">예제 4-2</a></p>
+	<p><a href="4_3">예제 4-3</a></p>
+	<p><a href="4_4">예제 4-4</a></p>
+	<p><a href="4_5">예제 4-5</a></p>
+	<p><a href="4_6">예제 4-6</a></p>
+	<p><a href="4_7">예제 4-7</a></p>
+	<p><a href="4_8">예제 4-8</a></p>
+	
+	<% 
+		String id="admin";
+		String name="hb";
+	%>
+	<form action="4_0" method="post">
+		<p><input type="text" name="id"/>
+		<p><input type="text" name="name"/>
+		<p><input type="submit" value="전송"></input>
+	</form>
+	<p><a href="4_0?id=<%=id%>&name=<%=name%>">예제 4-0</a></p>
+	
+	<p><a href="4_9">예제 4-9</a></p>
+	<p><a href="4_10">예제 4-10</a></p>
+	<p><a href="4_11">예제 4-11</a></p>
+
 </body>
 </html>
