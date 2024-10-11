@@ -33,8 +33,8 @@
 				<div class="h-100 p-2">
 					<h5><b><%=book.getName() %></b></h5>
 					<p><%=book.getAuthor() %></p>
-					<br><%=book.getPublisher() %> | 35<%=book.getUnitPrice() %>원
-					<p>37<%=book.getDescription().substring(0,60) %></p>
+					<br><%=book.getPublisher() %> | <%=book.getUnitPrice() %>원
+					<p><%=book.getDescription().substring(0,60) %></p>
 					<p><%=book.getUnitPrice() %>원</p>					
 				</div>
 			</div>

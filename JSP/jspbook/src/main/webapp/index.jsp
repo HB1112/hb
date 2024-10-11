@@ -49,6 +49,14 @@
 	<p><a href="4_9">예제 4-9</a></p>
 	<p><a href="4_10">예제 4-10</a></p>
 	<p><a href="4_11">예제 4-11</a></p>
-
+	<hr>
+	<form action="5_1" method="post">
+		<p> 예제 5-1
+		<p> 아 이 디 : <input type ="text" name="id">
+		<p> 비밀번호 : <input type ="text" name="passwd">
+		<p> <input type="submit" value="전송"/>
+	</form>
+	<p><a href="5_2">예제 5-2</a></p>
+	<p><a href="5_3">예제 5-3</a></p>
 </body>
 </html>
