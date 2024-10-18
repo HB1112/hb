@@ -43,10 +43,12 @@
   them. You will also need to set the passwords to something appropriate.
 -->
 
-  <role rolename="manager"/>
+<!--   <role rolename="manager"/>
   <role rolename="guest"/>
-  <user username="admin" password="1234" roles="manager"/>
-  <user username="bbb" password="1234" roles="manager,guest"/>
-  <user username="ccc" password="1234" roles="guest"/>
+  <user username="admin1" password="1234" roles="manager"/>
+  <user username="both" password="1234" roles="manager,guest"/>
+  <user username="guest" password="1234" roles="guest"/> -->
+  <role rolename="admin"/>
+  <user username="admin" password="admin1234" roles="admin"/>
 
 </tomcat-users>

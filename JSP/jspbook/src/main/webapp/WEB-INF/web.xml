@@ -2,8 +2,27 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   <display-name>jspbook</display-name>
   <welcome-file-list>
-    
     <welcome-file>index.jsp</welcome-file>
-    
   </welcome-file-list>
+  <security-role>
+		<role-name>manager</role-name>
+  </security-role>
+  	<security-constraint>
+  		<web-resource-collection>
+  			<web-resource-name>jspbook</web-resource-name>
+  			<url-pattern>/chapter10/exam10_03.jsp</url-pattern>
+  			<http-method>GET</http-method>
+  		</web-resource-collection>
+  		<auth-constraint>
+  			<description></description>
+  			<role-name>manager</role-name>
+  		</auth-constraint>
+  	</security-constraint>
+  	<login-config>
+  		<auth-method>FORM</auth-method>
+  		<form-login-config>
+  			<form-login-page>/chapter10/exam10_02_login.jsp</form-login-page>
+  			<form-error-page>/chapter10/exam10_02_failed.jsp</form-error-page>
+  		</form-login-config>
+  	</login-config>
 </web-app>
