@@ -25,4 +25,20 @@
   			<form-error-page>/chapter10/exam10_02_failed.jsp</form-error-page>
   		</form-login-config>
   	</login-config>
+  	<error-page>
+  		<error-code>500</error-code>
+  		<location>/chapter11/exam11_04_error.jsp</location>
+  	</error-page>
+  	<error-page>
+  		<exception-type>java.lang.Exception</exception-type>
+  		<location>/chapter11/exam11_05_error.jsp</location>
+  	</error-page>
+  	<filter>
+  		<filter-name>Filter01</filter-name>
+  		<filter-class>chapter12.exam12_01_filter</filter-class>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>Filter01</filter-name>
+  		<url-pattern>/12_1</url-pattern>
+  	</filter-mapping>
 </web-app>
