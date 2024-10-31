@@ -1,7 +1,6 @@
 package Book_controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import dao.BookRepository;
 import dto.Book;
@@ -11,25 +10,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@WebServlet("/books")
-public class Read_controller extends HttpServlet{
+@WebServlet("/book")
+public class Read_one_controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("1. books url 매핑 doget() 실팽");
+		System.out.println("Read_one_controller의 doGet() 입장");
 		//전처리
-		//모델이동
-		BookRepository br = BookRepository.getInstance(); 
-		if(br == null) {
-			System.out.println("2. BookRepository 객체 리턴 못받음");
-		}
-		ArrayList<Book> arr = br.getAllBooks();
-		if(arr == null) {
-			System.out.println("3. 리스트 정보를 전달받지 못함");
-		}
-		//뷰이동
-		req.setAttribute("list", arr);
-		RequestDispatcher rs= req.getRequestDispatcher("books.jsp");
+		String bookId = req.getParameter("id");
+		//모델 이동
+		BookRepository br = BookRepository.getInstance();
+		Book bk = br.getBookById(bookId);		
+		
+		//뷰 이동
+		req.setAttribute("dto", bk);
+		RequestDispatcher rs= req.getRequestDispatcher("book.jsp");
 		rs.forward(req, resp);
 	}
 
@@ -37,5 +32,5 @@ public class Read_controller extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
-	
+
 }
