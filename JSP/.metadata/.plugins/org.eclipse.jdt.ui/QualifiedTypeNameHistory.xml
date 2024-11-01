@@ -7,4 +7,6 @@
     <fullyQualifiedTypeName name="chapter16.dbconnect"/>
     <fullyQualifiedTypeName name="jakarta.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="dao.BookRepository"/>
+    <fullyQualifiedTypeName name="dao.memberRepository"/>
+    <fullyQualifiedTypeName name="dao.BoardRepository"/>
 </qualifiedTypeNameHistroy>

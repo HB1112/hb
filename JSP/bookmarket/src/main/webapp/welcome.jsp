@@ -15,9 +15,7 @@
 		String greeting = "Welcome to Book Shopping Mall";
 		String tagline = "Welcome to Web Market!";
 		%>
-	</div>
-
-	<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+		<div class="p-5 mb-4 bg-body-tertiary rounded-3">
 		<div class= "container-fluid py-5">
 			<h1 class = "display-5 fw-bold"><%=greeting %></h1>
 			<p class = "col-md-8 fs-4">BookMarket</p>
@@ -34,5 +32,8 @@
 	
 	<footer class="pt-3 mt-4 text-body-secondary border-top">&copy; BookMarket
 	</footer>
+	</div>
+
+	
 </body>
 </html>
