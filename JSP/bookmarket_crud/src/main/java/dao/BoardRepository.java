@@ -61,7 +61,26 @@ public class BoardRepository {
 	
 	
 	//create
-	public void create() {
+	public void create(Board bd) {
+		//DB연결
+		Connection conn = dbconn();
+		//sql 전송
+		String sql="insert into board(id,name,subject,content,regist_day,hit,ip) values(?,?,?,?,?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bd.getId());
+			pstmt.setString(2, bd.getName());
+			pstmt.setString(3, bd.getSubject());
+			pstmt.setString(4, bd.getContent());
+			pstmt.setTimestamp(5, bd.getRegist_day());
+			pstmt.setInt(6, bd.getHit());
+			pstmt.setString(7, bd.getIp());
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		//ResultSet 필요없음
 		
 	}
 	//read all
@@ -89,6 +108,7 @@ public class BoardRepository {
 				bd.setRegist_day(rs.getTimestamp("regist_day"));
 				bd.setHit(rs.getInt("hit"));
 				bd.setIp(rs.getString("ip"));
+				arr.add(bd);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

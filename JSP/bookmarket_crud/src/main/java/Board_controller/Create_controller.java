@@ -1,12 +1,17 @@
 package Board_controller;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import dao.BoardRepository;
 import dao.BookRepository;
+import dto.Board;
 import dto.Book;
+import dto.member;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,79 +24,65 @@ public class Create_controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Board Create_controller doGet()");
-		//전처리
-		HttpSession session = req.getSession(false);
-		if(session == null) {
-			resp.sendRedirect("member_login");
-		}
-		//모델이동
-		//뷰이동
-		RequestDispatcher rs= req.getRequestDispatcher("writeForm.jsp");
-		rs.forward(req, resp);
-	}
+		System.out.println("Board Create_Controller의 doGet()입장");
+	      //전처리
+	      HttpSession session = req.getSession(false);
+	      RequestDispatcher rs=null;
+	      System.out.println(session);
+	      if(session == null) {
+	         rs = req.getRequestDispatcher("member_login");
+	      }
+	      else if(session != null)
+	      {
+	         member mb = (member)session.getAttribute("member");
+	         if(session.getAttribute("member") == null) {
+	            System.out.println("세션존재 멤버 없음 이동한다");
+	            rs = req.getRequestDispatcher("member_login");
+	         }
+	         else {
+	            rs = req.getRequestDispatcher("writeForm.jsp");            
+	         }
+	      }
+	      
+	      rs.forward(req, resp);
+	      //모델이동
+	      //뷰이동
+	      
+	 }
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("/addBook 매핑 Create_controller doPost()");
+		System.out.println("Create_controller의 doPost");
 		//전처리
-		req.setCharacterEncoding("UTF-8");
-		//              bookmarket_crud(webapp) 
-		String save=req.getServletContext().getRealPath("resources/images");
-		System.out.println(save);
-		MultipartRequest multi = new MultipartRequest(req, save, 5*1024*1024,"utf-8", new DefaultFileRenamePolicy());
+		HttpSession session=req.getSession(false);
+		member mb = (member)session.getAttribute("member");
+		String id = mb.getId();
+		String name = req.getParameter("name");
+		String subject = req.getParameter("subject");
+		String content = req.getParameter("content");
 		
-		String bookId=multi.getParameter("bookId");
-		String name=multi.getParameter("name");
-		String unitPrice=multi.getParameter("unitPrice");
-		String author=multi.getParameter("author");
-		String publisher=multi.getParameter("publisher");
-		String releaseDate=multi.getParameter("releaseDate");
-		String description=multi.getParameter("description");
-		String category=multi.getParameter("category");
-		String unitsInStock=multi.getParameter("unitsInStock");
-		String condition=multi.getParameter("condition");
+		Date currentDatetime = new Date(System.currentTimeMillis());
+		Timestamp regist_day = new Timestamp(currentDatetime.getTime());
 		
-
-		// 숫자 값으로 변경 및 유효성 검사
-		Integer price;
-		if(unitPrice.isEmpty()){
-			price=0;
-		}else{
-			price=Integer.valueOf(unitPrice);
-		}
+		int hit = 0;
+		String ip = req.getRemoteAddr();
 		
-		long stock;
-		
-		if(unitsInStock.isEmpty()){
-			stock=0;
-		}else{
-			stock=Long.valueOf(unitsInStock);
-		}
-		// 여기까지 일반 텍스트 전처리
-		// 저장된 이미지의 이름을 변수에 저장
-		String fileName = multi.getFilesystemName("BookImage");
-		
-		Book bk = new Book();
-		bk.setBookId(bookId);
-		bk.setBookname(name);
-		bk.setAuthor(author);
-		bk.setPublisher(publisher);
-		bk.setReleaseDate(releaseDate);
-		bk.setBookdescription(description);
-		bk.setCategory(category);
-		bk.setBookcondition(condition);
-		
-		bk.setUnitsInStock(stock);
-		bk.setUnitPrice(price);
-		
-		bk.setFilename(fileName);
+		Board bd = new Board();
+		bd.setId(id);
+		bd.setName(name);
+		bd.setSubject(subject);
+		bd.setContent(content);
+		bd.setRegist_day(regist_day);
+		bd.setHit(hit);
+		bd.setIp(ip);
 		
 		//모델이동
-		BookRepository br = BookRepository.getInstance();
-		br.addBook(bk);
-		//뷰이동 CUD에서는 보여줄 뷰어가 없음
-		resp.sendRedirect("books");
+		BoardRepository br = BoardRepository.getInstance();
+		br.create(bd);
+		
+		
+		//뷰이동
+		resp.sendRedirect("BoardListAction");
 	}
 
 }

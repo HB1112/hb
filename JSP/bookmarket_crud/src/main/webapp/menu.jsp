@@ -1,16 +1,17 @@
  <%@ page contentType="text/html; charset=UTF-8" %>
  <%@ page import="dto.member" %>
- 
+ <%@ page session="false" %>
 <%
 	
 	String sessionId=null;
-		
+	HttpSession session = null;
+	session = request.getSession(false);
+	System.out.println(session);
 	if(session != null){
-		member mb = (member)session.getAttribute("member");
-		if( mb != null){
-			sessionId = mb.getName();
-		}
-		
+	    member mb = (member) session.getAttribute("member");
+	    if(mb != null){
+	        sessionId = mb.getName();   
+	    }
 	}
 %>
  <header class="pb-3 mb-4 border-bottom">

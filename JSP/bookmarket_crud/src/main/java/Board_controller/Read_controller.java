@@ -21,14 +21,19 @@ public class Read_controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Board Create_controller doGet()");
+		System.out.println("Board read_controller doGet()");
 		int limit = 5; // 한페이지에 출력할 글의 갯수를 제한
 		//전처리
-		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
+		String page = req.getParameter("pageNum");
+		int pageNum = 1;
+		if(page !=null) {
+			pageNum = Integer.parseInt(page);
+		}
 		
 		//모델이동
 		BoardRepository br = BoardRepository.getInstance();
 		ArrayList<Board> arr = br.getAllBoard();
+		System.out.println("Read controller : " + arr);
 		int total_record = br.getTotalCount();
 		int total_page=0;
 		if(total_record % limit==0) {

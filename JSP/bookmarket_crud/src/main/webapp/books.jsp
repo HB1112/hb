@@ -4,6 +4,7 @@
     <%@ page import="dto.Book" %>
     <%@ page import="dao.BookRepository" %>
     <%@ page import="java.sql.*" %>
+     <%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>

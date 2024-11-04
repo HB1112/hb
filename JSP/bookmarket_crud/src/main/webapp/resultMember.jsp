@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.member" %>
+ <%@ page session="false" %>
 <html>
 <head>
 <link rel="stylesheet" href="/bookmarket_crud/resources/css/bootstrap.min.css" />
@@ -13,6 +14,7 @@
  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
       <div class="container-fluid py-5">
       <%
+      		HttpSession session = null;
 			String msg = request.getParameter("msg");
       		if (msg.equals("0")||msg.equals("2")){
       %>
@@ -38,6 +40,7 @@
 				else if (msg.equals("1"))
 					out.println(" <h2 class='alert alert-danger'>회원가입을 축하드립니다.</h2>");
 				else if (msg.equals("2")) {
+					
 					session = request.getSession(false);
 					member mb = (member)session.getAttribute("member");
 					String name = mb.getName();
