@@ -2,17 +2,18 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.springmvc</groupId>
-  <artifactId>chap0201</artifactId>
+  <artifactId>SpringBookMarket</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>chap0201 Maven Webapp</name>
+  <name>SpringBookMarket Maven Webapp</name>
   <url>http://maven.apache.org</url>
-    <properties>
-        <java-version>17</java-version>
-        <org.springframework-version>5.3.19</org.springframework-version>
-        <org.aspectj-version>1.9.9.1</org.aspectj-version>
-        <org.slf4j-version>1.7.36</org.slf4j-version>
-    </properties>
+  <properties>
+	<java-version>17</java-version>
+	<org.springframework-version>5.3.19</org.springframework-version>
+	<org.aspectj-version>1.9.9.1</org.aspectj-version>
+	<org.slf4j-version>1.7.36</org.slf4j-version>
+  </properties>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -20,7 +21,8 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-          <dependency>
+     
+     <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
          <version>${org.springframework-version}</version>
@@ -32,16 +34,26 @@
              </exclusion>
          </exclusions>
       </dependency>
+      
       <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-webmvc</artifactId>
          <version>${org.springframework-version}</version>
       </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
 
+    
   </dependencies>
+  
+  
   <build>
-    <finalName>chap0201</finalName>
-            <plugins>
+    <finalName>SpringBookMarket</finalName>
+    <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
