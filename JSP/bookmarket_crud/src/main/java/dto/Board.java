@@ -1,6 +1,4 @@
-package dto;
-
-import java.sql.Timestamp;
+package DTO;
 
 public class Board {
 	private int num;
@@ -8,10 +6,9 @@ public class Board {
 	private String name;
 	private String subject;
 	private String content;
-	private Timestamp regist_day;
+	private String regist_day;
 	private int hit;
 	private String ip;
-	
 	public int getNum() {
 		return num;
 	}
@@ -42,10 +39,10 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Timestamp getRegist_day() {
+	public String getRegist_day() {
 		return regist_day;
 	}
-	public void setRegist_day(Timestamp regist_day) {
+	public void setRegist_day(String regist_day) {
 		this.regist_day = regist_day;
 	}
 	public int getHit() {
@@ -60,4 +57,5 @@ public class Board {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+	
 }

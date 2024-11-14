@@ -1,8 +1,8 @@
-package dto;
+package DTO;
 
 import java.sql.Timestamp;
 
-public class member {
+public class Member {
 	private String id;
 	private String password;
 	private String name;
@@ -12,7 +12,6 @@ public class member {
 	private String phone;
 	private String address;
 	private Timestamp regist_day;
-	
 	public String getId() {
 		return id;
 	}
