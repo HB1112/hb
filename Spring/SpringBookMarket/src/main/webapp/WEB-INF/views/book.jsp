@@ -26,7 +26,17 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-4">
+				<c:choose>
+					<c:when test="${ book.getBookImage() == null}">
+						<img src="/SpringBookMarket/resources/images/${book.bookId}.png" style="width:100%">
+					</c:when>
+					<c:otherwise>
+						<img src="/SpringBookMarket/resources/images/${book.getBookImage().getOriginalFilename()}" style="width:100%">
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<div class="col-md-8">
 				<h3>${book.name}</h3>
 				<p>${book.description}
 				<br>
